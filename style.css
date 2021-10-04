@@ -10,6 +10,7 @@ body {
     padding-left: 15px;
     width: 100%;
     max-width: 1140px;
+    display:flex;
 }
 .col{
     position:relative;
@@ -27,71 +28,10 @@ body {
     margin-right: -15px;
     margin-left: -15px;
 }
-table {
-    border-collapse: collapse;
-    border: 1px solid black;
-    width:100%;
-    word-wrap: break-word;
-    table-layout: fixed;
-}
-th { 
-    background-color: #009FCC;
-    padding:10px;
-    border:1px solid #000;
-    color:#fff;
-} 
-td { 
-    border:1px solid #000;
-    padding:5px;
-} 
-table.dataTable th { /*表頭*/
-    border-collapse: collapse;
-    border: 1px solid #000;
-    padding: 3px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;  
-}
-table.dataTable td { /*表*/
-    border: 1px solid #000;
-    padding: 3px;
-}
-table.dataTable tbody tr:nth-child(even) {background-color: #ddd;}
-table.dataTable tbody tr:hover {
-    background-color: #ffa;
-}
-.dataTables_wrapper .dt-buttons {
-    float:none;  
-    text-align:right;
-}
-input {
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    font-size: 14px;
-    padding: 5px 5px 5px 5px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
-}
-select {
-    height: 30px;
-}
-#table_id1_length {
-    margin-top: 10px;
-    cursor: pointer;
-}
-#table_id2_length {
-    margin-top: 10px;
-    cursor: pointer;
-}
-.chart-container {
-    position: relative;
-    margin: auto;
-    height: 60vh;
-    width: 60vw;
-}
-canvas{
-    height:60vh !important;
-    width:60vw !important;
-}
+.item-right{
+    flex:1; /*對應子層加上；1數值是內元件之間佔的比例*/
+ }
+ ​
+ .item-left{
+    flex:1; /*對應子層加上*/
+ }
