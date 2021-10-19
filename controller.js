@@ -1,14 +1,25 @@
 window.onload = function () {
     var formData = $('#searchform').serializeArray();
     console.log("formData", formData)
-    let url = "09.json";
+
+    let month = {'2021/4':'resource/04.json','2021/5':'resource/05.json','2021/6':'resource/06.json',
+                 '2021/7':'resource/07.json','2021/8':'resource/08.json','2021/9':'resource/09.json'};
+
+    let url = '';
+    for(key in month){
+        if(formData[0].value == key){
+            url = month[key];
+        }
+    }
+    console.log("url", url)
+
     let request = new XMLHttpRequest();
-    request.open("get", url);
+    request.open("GET", url);
     request.send(null);
     request.onload = function () {
         if (request.status == 200) {
             var json = JSON.parse(request.responseText);
-            var el = document.querySelector(".list");
+            var list = document.querySelector(".list");
             var str = ''; 
             x = 0;
             for (var i = 0; i < json.length; i++) {
@@ -48,7 +59,7 @@ window.onload = function () {
             }
 
             console.log('x', x)
-            el.innerHTML = str;
+            list.innerHTML = str;
         }
     }
 }
