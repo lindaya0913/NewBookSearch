@@ -2,8 +2,8 @@ window.onload = function () {
     var formData = $('#searchform').serializeArray();
     console.log("formData", formData)
 
-    let month = {'All':'resource/*.json','2021/4':'resource/04.json','2021/5':'resource/05.json','2021/6':'resource/06.json',
-                 '2021/7':'resource/07.json','2021/8':'resource/08.json','2021/9':'resource/09.json'};
+    let month = {'2021/4':'resource/04.json','2021/5':'resource/05.json','2021/6':'resource/06.json',
+                 '2021/7':'resource/07.json','2021/8':'resource/08.json','All':'resource/09.json'};
 
     let url = '';
     for(key in month){
