@@ -92,13 +92,13 @@
         function saveValue(e) {
             var id = e.id;
             var val = e.value;
-            localStorage.setItem(id, val);
+            sessionStorage.setItem(id, val);
         }
         function getSavedValue(v) {
-            if (!localStorage.getItem(v)) {
-                return "";
+            if (!sessionStorage.getItem(v)) {
+                return "All";
             }
-            return localStorage.getItem(v);
+            return sessionStorage.getItem(v);
         }
     </script>
 </body>
