@@ -11,6 +11,59 @@
 
     <script src="controller.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        var Today = new Date();
+        var Tyear = Today.getFullYear(); 
+        var Tmonth = Today.getMonth(); 
+        var Oyear = Today.getFullYear() - 1; 
+        var outstr = ""; 
+        j = Tmonth; 
+        if(j < 10){
+            j = "0" + j; 
+        }else{ 
+            j = "" + j; 
+        } 
+        jj = Tyear + j; 
+        outstr = "<option selected value ='All'>" + Tyear + "/" + j + "</option>";
+
+        // Determine whether this month is within May, if it is an option, it needs to be pushed back to last year.
+        if (Tmonth <= 5){
+            // This year
+            for(i = Tmonth - 1; i > 0; i--) { 
+                j = i; 
+                if(j < 10) { 
+                    j = "0" + j; 
+                } else { 
+                    j = "" + j; 
+                } 
+                jj = Tyear + "/" + j; 
+                outstr = outstr + "<option value ='" + jj + "'>" + Tyear + "/" + j + "</option>" 
+            } 
+            // Last year
+            for(i = 12; i > (12 + (Tmonth - 6)); i--){ 
+                j = i; 
+                if(j < 10) { 
+                    j = "0" + j; 
+                } else { 
+                    j = "" + j; 
+                } 
+                jj = Oyear + "/" + j; 
+                outstr = outstr + "<option value ='" + jj + "'>" + Oyear + "/" + j + "</option>" 
+            } 
+        }else{
+            for(i = Tmonth - 1; i >= (Tmonth - 5); i--) { 
+                j = i; 
+                if(j < 10) { 
+                    j = "0" + j; 
+                } else { 
+                    j = "" + j; 
+                } 
+                jj = Tyear + "/" + j; 
+                outstr = outstr + "<option value ='" + jj + "'>" + Tyear + "/" + j + "</option>" 
+            } 
+        } 
+    </script>
 </head>
 
 <body>
@@ -43,12 +96,9 @@
                             <label class="input-group-text" for="inputGroupSelect01">月份</label>
                         </div>
                         <select class="custom-select" id="month" name="month" onChange="saveValue(this);">
-                            <option value="All" selected>2021/9</option>
-                            <option value="2021/8">2021/8</option>
-                            <option value="2021/7">2021/7</option>
-                            <option value="2021/6">2021/6</option>
-                            <option value="2021/5">2021/5</option>
-                            <option value="2021/4">2021/4</option>
+                            <script> 
+                                document.write(outstr)
+                            </script>
                         </select>
                     </div>
                     <div class="input-group mb-3">
