@@ -1,6 +1,6 @@
 window.onload = function () {
     var formData = $('#searchform').serializeArray();
-    console.log("formData", formData)
+    // console.log("formData", formData)
 
     var Today = new Date();
     var Tyear = Today.getFullYear(); 
@@ -58,7 +58,7 @@ window.onload = function () {
             url = outstr[key];
         }
     }
-    console.log("url", url)
+    // console.log("url", url)
 
     let request = new XMLHttpRequest();
     request.open("GET", url);
