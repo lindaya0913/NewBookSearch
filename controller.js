@@ -5,8 +5,15 @@ window.onload = function () {
     var Today = new Date();
     var Tyear = Today.getFullYear(); 
     var Tmonth = Today.getMonth(); 
+    var Tdate = Today.getDate(); 
     var Oyear = Today.getFullYear() - 1; 
     var outstr = {}; 
+
+    // Determine whether this date is within 15th, if it is an option, it needs to be pushed back to last month.
+    if (Tdate <= 15){
+        Tmonth = Tmonth - 1  
+    }
+
     j = Tmonth; 
     if(Tmonth < 10){
         j = "0" + j; 
