@@ -15,29 +15,66 @@
     <script>
         var Today = new Date();
         var Tyear = Today.getFullYear(); 
-        var Tmonth = Today.getMonth(); 
+        var Tmonth = Today.getMonth() + 1; 
         var Tdate = Today.getDate();
         var Oyear = Today.getFullYear() - 1; 
-        var outstr = ""; 
+        var outstr = "";
 
         // Determine whether this date is within 15th, if it is an option, it needs to be pushed back to last month.
         if (Tdate <= 15){
-            Tmonth = Tmonth - 1  
+            if (Tmonth == 2){
+                outstr = "<option selected value ='All'>" + Oyear + "/" + 12 + "</option>";
+                Tmonth = Tmonth - 2
+            }else if(Tmonth == 1){
+                outstr = "<option selected value ='All'>" + Oyear + "/" + 11 + "</option>";
+                Tmonth = Tmonth - 2
+            }else{
+                Tmonth = Tmonth - 2
+                j = Tmonth; 
+                if(j < 10){
+                    j = "0" + j; 
+                }else{ 
+                    j = "" + j; 
+                } 
+                jj = Tyear + j; 
+                outstr = "<option selected value ='All'>" + Tyear + "/" + j + "</option>";
+            }
+        }else{
+            if (Tmonth == 2){
+                outstr = "<option selected value ='All'>" + Tyear + "/" + 1 + "</option>";
+                Tmonth = Tmonth - 1
+            }else if(Tmonth == 1){
+                outstr = "<option selected value ='All'>" + Oyear + "/" + 12 + "</option>";
+                Tmonth = Tmonth - 1
+            }else{
+                Tmonth = Tmonth - 1 
+                j = Tmonth;
+                if(j < 10){
+                    j = "0" + j; 
+                }else{ 
+                    j = "" + j; 
+                } 
+                jj = Tyear + j; 
+                outstr = "<option selected value ='All'>" + Tyear + "/" + j + "</option>";
+            }
         }
-        
-        j = Tmonth; 
-        if(j < 10){
-            j = "0" + j; 
-        }else{ 
-            j = "" + j; 
-        } 
-        jj = Tyear + j; 
-        outstr = "<option selected value ='All'>" + Tyear + "/" + j + "</option>";
 
         // Determine whether this month is within May, if it is an option, it needs to be pushed back to last year.
-        if (Tmonth <= 5){
+        if(Tmonth <= 0){
+            // Last year
+            for(i = (11 + Tmonth); i > (12 + (Tmonth - 6)); i--){ 
+                j = i; 
+                if(j < 10) { 
+                    j = "0" + j; 
+                } else { 
+                    j = "" + j; 
+                } 
+                jj = Oyear + "/" + j; 
+                outstr = outstr + "<option value ='" + jj + "'>" + Oyear + "/" + j + "</option>" 
+            } 
+        }else if (Tmonth <= 5){
             // This year
-            for(i = Tmonth - 1; i > 0; i--) { 
+            for(i = Tmonth -1 ; i > 0; i--) { 
                 j = i; 
                 if(j < 10) { 
                     j = "0" + j; 

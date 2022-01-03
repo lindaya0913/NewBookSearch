@@ -4,26 +4,62 @@ window.onload = function () {
 
     var Today = new Date();
     var Tyear = Today.getFullYear(); 
-    var Tmonth = Today.getMonth(); 
+    var Tmonth = Today.getMonth() + 1; 
     var Tdate = Today.getDate(); 
     var Oyear = Today.getFullYear() - 1; 
     var outstr = {}; 
 
     // Determine whether this date is within 15th, if it is an option, it needs to be pushed back to last month.
     if (Tdate <= 15){
-        Tmonth = Tmonth - 1  
-    }
-
-    j = Tmonth; 
-    if(Tmonth < 10){
-        j = "0" + j; 
-    }else{ 
-        j = "" + j; 
+        if (Tmonth == 2){
+            outstr['All'] = "resource/" + 12 + ".json";
+            Tmonth = Tmonth - 2
+        }else if(Tmonth == 1){
+            outstr['All'] = "resource/" + 11 + ".json";
+            Tmonth = Tmonth - 2
+        }else{
+            Tmonth = Tmonth - 2
+            j = Tmonth; 
+            if(j < 10){
+                j = "0" + j; 
+            }else{ 
+                j = "" + j; 
+            } 
+            outstr['All'] = "resource/" + j + ".json";
+        }
+    }else{
+        if (Tmonth == 2){
+            outstr['All'] = "resource/" + 1 + ".json";
+            Tmonth = Tmonth - 1
+        }else if(Tmonth == 1){
+            outstr['All'] = "resource/" + 12 + ".json";
+            Tmonth = Tmonth - 1
+        }else{
+            Tmonth = Tmonth - 1 
+            j = Tmonth;
+            if(j < 10){
+                j = "0" + j; 
+            }else{ 
+                j = "" + j; 
+            } 
+            outstr['All'] = "resource/" + j + ".json";
+        }
     } 
-    outstr['All'] = "resource/" + j + ".json"; 
 
     // Determine whether this month is within May, if it is an option, it needs to be pushed back to last year.
-    if (Tmonth <= 5){
+    if (Tmonth <= 0){
+        // Last year
+        for(i = (11 + Tmonth); i > (12 + (Tmonth - 6)); i--){ 
+            j = i; 
+            if (j < 10) { 
+                j = "0" + j; 
+            } else { 
+                j = "" + j; 
+            } 
+            jj = Oyear + "/" + j; 
+            outstr[jj] = "resource/" + j + ".json"; 
+        } 
+    }else if (Tmonth <= 5){
         // This year
         for(i = Tmonth - 1; i > 0; i--) { 
             j = i; 
@@ -49,7 +85,7 @@ window.onload = function () {
     }else{
         for(i = Tmonth - 1; i >= (Tmonth - 5); i--) { 
             j = i; 
-            if(j < 10) { 
+            if (j < 10) { 
                 j = "0" + j; 
             } else { 
                 j = "" + j; 
@@ -61,7 +97,7 @@ window.onload = function () {
 
     let url = '';
     for(key in outstr){
-        if(formData[0].value == key){
+        if (formData[0].value == key){
             url = outstr[key];
         }
     }
