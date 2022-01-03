@@ -10,7 +10,7 @@ window.onload = function () {
     var outstr = {}; 
 
     // Determine whether this date is within 15th, if it is an option, it needs to be pushed back to last month.
-    if (Tdate <= 15){
+    if (Tdate < 15){
         if (Tmonth == 2){
             outstr['All'] = "resource/" + 12 + ".json";
             Tmonth = Tmonth - 2
@@ -29,7 +29,7 @@ window.onload = function () {
         }
     }else{
         if (Tmonth == 2){
-            outstr['All'] = "resource/" + 1 + ".json";
+            outstr['All'] = "resource/" + 01 + ".json";
             Tmonth = Tmonth - 1
         }else if(Tmonth == 1){
             outstr['All'] = "resource/" + 12 + ".json";

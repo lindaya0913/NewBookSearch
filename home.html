@@ -21,7 +21,7 @@
         var outstr = "";
 
         // Determine whether this date is within 15th, if it is an option, it needs to be pushed back to last month.
-        if (Tdate <= 15){
+        if (Tdate < 15){
             if (Tmonth == 2){
                 outstr = "<option selected value ='All'>" + Oyear + "/" + 12 + "</option>";
                 Tmonth = Tmonth - 2
@@ -41,7 +41,7 @@
             }
         }else{
             if (Tmonth == 2){
-                outstr = "<option selected value ='All'>" + Tyear + "/" + 1 + "</option>";
+                outstr = "<option selected value ='All'>" + Tyear + "/" + 01 + "</option>";
                 Tmonth = Tmonth - 1
             }else if(Tmonth == 1){
                 outstr = "<option selected value ='All'>" + Oyear + "/" + 12 + "</option>";
