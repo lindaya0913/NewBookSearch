@@ -113,28 +113,52 @@ window.onload = function () {
             var str = ''; 
             for (var i = 0; i < json.length; i++) {
                 if(formData[1].value != 'All' & formData[2].value != 'All'){
-                    if(json[i].Column2 == formData[1].value & json[i].Column7 == formData[2].value){
-                        var content = "<li><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column3 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column5 + "</a></li>";
+                    if(json[i].Column3 == formData[1].value & json[i].Column8 == formData[2].value){
+                        var Column1 = ''
+                        if(json[i].Column1 == 'N/A'){
+                            Column1 = ''
+                        }else{
+                            Column1 = json[i].Column1
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
                         str += content;
                     }else{
                         continue
                     }
                 }else if(formData[1].value != 'All'){
-                    if(json[i].Column2 == formData[1].value){
-                        var content = "<li><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column3 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column5 + "</a></li>";
+                    if(json[i].Column3 == formData[1].value){
+                        var Column1 = ''
+                        if(json[i].Column1 == 'N/A'){
+                            Column1 = ''
+                        }else{
+                            Column1 = json[i].Column1
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
                         str += content;
                     }else{
                         continue
                     }
                 }else if(formData[2].value != 'All'){
-                    if(json[i].Column7 == formData[2].value){
-                        var content = "<li><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column3 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column5 + "</a></li>";
+                    if(json[i].Column8 == formData[2].value){
+                        var Column1 = ''
+                        if(json[i].Column1 == 'N/A'){
+                            Column1 = ''
+                        }else{
+                            Column1 = json[i].Column1
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
                         str += content;
                     }else{
                         continue
                     }
                 }else{
-                    var content = "<li><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column3 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column5 + "</a></li>";
+                    var Column1 = ''
+                    if(json[i].Column1 == 'N/A'){
+                        Column1 = ''
+                    }else{
+                        Column1 = json[i].Column1
+                    }
+                    var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
                     str += content;
                 }
             }
