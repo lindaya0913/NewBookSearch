@@ -115,12 +115,14 @@ window.onload = function () {
                 if(formData[1].value != 'All' & formData[2].value != 'All'){
                     if(json[i].Column3 == formData[1].value & json[i].Column8 == formData[2].value){
                         var Column1 = ''
-                        if(json[i].Column1 == 'N/A'){
-                            Column1 = ''
-                        }else{
+                        var Column9 = ''
+                        if(json[i].Column1 != 'N/A'){
                             Column1 = json[i].Column1
                         }
-                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
+                        if(json[i].Column9 != 'N/A'){
+                            Column9 = json[i].Column9
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td><td>" + Column9 + "</td></tr>";
                         str += content;
                     }else{
                         continue
@@ -128,12 +130,14 @@ window.onload = function () {
                 }else if(formData[1].value != 'All'){
                     if(json[i].Column3 == formData[1].value){
                         var Column1 = ''
-                        if(json[i].Column1 == 'N/A'){
-                            Column1 = ''
-                        }else{
+                        var Column9 = ''
+                        if(json[i].Column1 != 'N/A'){
                             Column1 = json[i].Column1
                         }
-                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
+                        if(json[i].Column9 != 'N/A'){
+                            Column9 = json[i].Column9
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td><td>" + Column9 + "</td></tr>";
                         str += content;
                     }else{
                         continue
@@ -141,24 +145,28 @@ window.onload = function () {
                 }else if(formData[2].value != 'All'){
                     if(json[i].Column8 == formData[2].value){
                         var Column1 = ''
-                        if(json[i].Column1 == 'N/A'){
-                            Column1 = ''
-                        }else{
+                        var Column9 = ''
+                        if(json[i].Column1 != 'N/A'){
                             Column1 = json[i].Column1
                         }
-                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
+                        if(json[i].Column9 != 'N/A'){
+                            Column9 = json[i].Column9
+                        }
+                        var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td><td>" + Column9 + "</td></tr>";
                         str += content;
                     }else{
                         continue
                     }
                 }else{
                     var Column1 = ''
-                    if(json[i].Column1 == 'N/A'){
-                        Column1 = ''
-                    }else{
+                    var Column9 = ''
+                    if(json[i].Column1 != 'N/A'){
                         Column1 = json[i].Column1
                     }
-                    var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td></tr>";
+                    if(json[i].Column9 != 'N/A'){
+                        Column9 = json[i].Column9
+                    }
+                    var content = "<tr><td><a href='https://nthu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma" + json[i].Column4 + "&context=L&vid=886UST_NTHU:886UST_NTHU' target='_blank'>" + json[i].Column6 + "</a></td><td>" + Column1 + "</td><td>" + Column9 + "</td></tr>";
                     str += content;
                 }
             }
