@@ -113,7 +113,7 @@ window.onload = function () {
             var str = ''; 
             for (var i = 0; i < json.length; i++) {
                 if(formData[1].value != 'All' & formData[2].value != 'All'){
-                    if(json[i].Column3 == formData[1].value & json[i].Column8 == formData[2].value){
+                    if(json[i].Column3 == formData[1].value & json[i].Column10 == formData[2].value){
                         var Column1 = ''
                         var Column9 = ''
                         if(json[i].Column1 != 'N/A'){
@@ -143,7 +143,7 @@ window.onload = function () {
                         continue
                     }
                 }else if(formData[2].value != 'All'){
-                    if(json[i].Column8 == formData[2].value){
+                    if(json[i].Column10 == formData[2].value){
                         var Column1 = ''
                         var Column9 = ''
                         if(json[i].Column1 != 'N/A'){
